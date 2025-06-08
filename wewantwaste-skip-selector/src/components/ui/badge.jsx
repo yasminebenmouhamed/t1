@@ -1,3 +1,3 @@
 export function Badge({ children }) {
-  return <span className="px-2 py-1 bg-gray-200 rounded">{children}</span>;
+  return <span className="px-1 py-2 bg-green rounded">{children}</span>;
 }
