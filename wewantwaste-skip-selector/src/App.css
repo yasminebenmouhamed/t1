@@ -1,0 +1,242 @@
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Le reste de ton CSS */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(20% 0.05 120);
+  --foreground: oklch(95% 0.02 100);
+  --card: oklch(25% 0.05 120);
+  --card-foreground: oklch(95% 0.02 100);
+  --popover: oklch(25% 0.05 120);
+  --popover-foreground: oklch(95% 0.02 100);
+  --primary: oklch(80% 0.15 100);
+  --primary-foreground: oklch(15% 0.02 100);
+  --secondary: oklch(90% 0.05 100);
+  --secondary-foreground: oklch(20% 0.02 100);
+  --muted: oklch(90% 0.05 100);
+  --muted-foreground: oklch(60% 0.02 100);
+  --accent: oklch(90% 0.05 100);
+  --accent-foreground: oklch(20% 0.02 100);
+  --destructive: oklch(70% 0.2 20);
+  --border: oklch(30% 0.05 120);
+  --input: oklch(30% 0.05 120);
+  --ring: oklch(50% 0.05 120);
+  --chart-1: oklch(70% 0.15 100);
+  --chart-2: oklch(65% 0.1 180);
+  --chart-3: oklch(50% 0.07 220);
+  --chart-4: oklch(85% 0.18 80);
+  --chart-5: oklch(80% 0.18 70);
+  --sidebar: oklch(25% 0.05 120);
+  --sidebar-foreground: oklch(95% 0.02 100);
+  --sidebar-primary: oklch(80% 0.15 100);
+  --sidebar-primary-foreground: oklch(15% 0.02 100);
+  --sidebar-accent: oklch(90% 0.05 100);
+  --sidebar-accent-foreground: oklch(20% 0.02 100);
+  --sidebar-border: oklch(30% 0.05 120);
+  --sidebar-ring: oklch(50% 0.05 120);
+}
+
+.dark {
+  --background: oklch(15% 0.05 120);
+  --foreground: oklch(98% 0.02 100);
+  --card: oklch(20% 0.05 120);
+  --card-foreground: oklch(98% 0.02 100);
+  --popover: oklch(20% 0.05 120);
+  --popover-foreground: oklch(98% 0.02 100);
+  --primary: oklch(90% 0.15 100);
+  --primary-foreground: oklch(15% 0.02 100);
+  --secondary: oklch(30% 0.05 100);
+  --secondary-foreground: oklch(98% 0.02 100);
+  --muted: oklch(30% 0.05 100);
+  --muted-foreground: oklch(70% 0.02 100);
+  --accent: oklch(30% 0.05 100);
+  --accent-foreground: oklch(98% 0.02 100);
+  --destructive: oklch(75% 0.2 20);
+  --border: oklch(25% 0.05 120);
+  --input: oklch(25% 0.05 120);
+  --ring: oklch(55% 0.05 120);
+  --chart-1: oklch(50% 0.2 260);
+  --chart-2: oklch(70% 0.15 160);
+  --chart-3: oklch(80% 0.18 70);
+  --chart-4: oklch(65% 0.25 300);
+  --chart-5: oklch(65% 0.25 15);
+  --sidebar: oklch(20% 0.05 120);
+  --sidebar-foreground: oklch(98% 0.02 100);
+  --sidebar-primary: oklch(50% 0.2 260);
+  --sidebar-primary-foreground: oklch(98% 0.02 100);
+  --sidebar-accent: oklch(30% 0.05 100);
+  --sidebar-accent-foreground: oklch(98% 0.02 100);
+  --sidebar-border: oklch(25% 0.05 120);
+  --sidebar-ring: oklch(55% 0.05 120);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(192, 224, 192, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(192, 224, 192, 0.6); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Gradient animé pour le fond (inspiré des couleurs de jardin) */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, oklch(20% 0.05 120), oklch(15% 0.05 100), oklch(10% 0.05 140), oklch(25% 0.05 110));
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Effet de brillance sur les cartes */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-shine::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(192, 224, 192, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.card-shine:hover::before {
+  animation: shine 0.6s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Styles pour le carrousel */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  width: calc(100% / 3); /* Afficher 3 éléments */
+  padding: 0 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item.center-item {
+  transform: scale(1.1); /* Agrandir l'élément central */
+  z-index: 10;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.carousel-arrow.left {
+  left: 1rem;
+}
+
+.carousel-arrow.right {
+  right: 1rem;
+}
+
+
